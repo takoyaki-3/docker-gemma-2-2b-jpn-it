@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  text_generation_app:
+    build: .
+    container_name: text_generation_container
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    environment:
+      - MODEL_NAME=google/gemma-2-2b-jpn-it
+      - HF_TOKEN=[Hugging Face API Token]
+    command: python app.py
